@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planetas: [],
 			detallePersonaje: {},
 			detallePlaneta: {},
-			detalleNave: {}
+			detalleNave: {},
+			favoritos: []
 		},
 		actions: {
 			//---------------------------> GET Personajes
@@ -83,6 +84,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log("error", error));
 			}
+			/* addFavPersonaje: id => {
+				const store = getStore();
+				setStore({ favoritos: [store.personajes[id], ...store.favoritos] })
+			} */
 		}
 	};
 };

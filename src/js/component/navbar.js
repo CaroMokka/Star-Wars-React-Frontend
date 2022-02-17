@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import swImage from "../../img/sw-logo.png";
 import "../../styles/navbar.scss";
+import { Dropdown } from "bootstrap";
+import { Badge } from "bootstrap";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar">
 			<Link to="/">
@@ -23,26 +27,26 @@ export const Navbar = () => {
 					<span className="text-light mx-3">STARSHIPS</span>
 				</Link>
 			</div>
-			<div className="favoritos text-light">
-				<div className="dropdown">
-					<button
-						className="btn btn-warning dropdown-toggle"
-						type="button"
-						id="dropdownMenuButton1"
-						data-bs-toggle="dropdown"
-						aria-expanded="false">
-						Favorites
-						<span className="badge bg-warning text-dark fw-3">4</span>
-					</button>
-					<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li>
-							<a className="dropdown-item" href="#">
-								Action
-							</a>
-						</li>
-					</ul>
-				</div>
+
+			<div className="dropdown">
+				<button
+					className="btn btn-warning dropdown-toggle fs-6"
+					type="button"
+					id="dropdownMenu2"
+					data-bs-toggle="dropdown"
+					aria-expanded="false">
+					FAVORITES
+					<span className="badge text-dark">{store.favoritos.length}</span>
+				</button>
+				<ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
+					<li>
+						<button className="dropdown-item" type="button">
+							Action
+						</button>
+					</li>
+				</ul>
 			</div>
+
 			<div className="ml-auto">
 				<Link to="/registro">
 					<button className="btn 1">

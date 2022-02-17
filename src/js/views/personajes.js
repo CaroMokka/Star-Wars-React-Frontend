@@ -34,13 +34,9 @@ export const Personajes = () => {
 											<span className="detalle">Details</span>
 										</button>
 									</Link>
-									<Link to={`/detallePersonaje/${index + 1}`}>
-										<button className="btn btn-outline-warning my-2 rounded-0">
-											<span className="me-gusta ms-2">
-												<i className="far fa-heart" />
-											</span>
-										</button>
-									</Link>
+									<button className="btn btn-outline-warning my-2 rounded-0">
+										<i className="far fa-heart" />
+									</button>
 								</div>
 							</div>
 						);
