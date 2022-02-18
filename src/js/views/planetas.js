@@ -30,13 +30,14 @@ export const Planetas = () => {
 											<span className="detalle">Detail</span>
 										</button>
 									</Link>
-									<Link to={`/detallePlaneta/${index + 1}`}>
-										<button className="btn btn-outline-warning my-2 rounded-0">
-											<span className="me-gusta ms-2">
-												<i className="far fa-heart" />
-											</span>
-										</button>
-									</Link>
+									<button
+										onClick={() => {
+											actions.addFav(item.name);
+											console.log(item.name);
+										}}
+										className="btn btn-outline-warning my-2 rounded-0">
+										<i className="far fa-heart" />
+									</button>
 								</div>
 							</div>
 						);

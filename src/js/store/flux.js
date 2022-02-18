@@ -83,11 +83,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ detalleNave: resultado.result.properties });
 					})
 					.catch(error => console.log("error", error));
-			}
-			/* addFavPersonaje: id => {
+			},
+			addFav: item => {
 				const store = getStore();
-				setStore({ favoritos: [store.personajes[id], ...store.favoritos] })
-			} */
+				setStore({ favoritos: [...store.favoritos, item] });
+			},
+			deleteFav: index => {
+				const store = getStore();
+
+				const listFilter = store.favoritos.filter((item, i) => index !== i);
+				setStore({ favoritos: listFilter });
+			}
 		}
 	};
 };

@@ -38,12 +38,18 @@ export const Navbar = () => {
 					FAVORITES
 					<span className="badge text-dark">{store.favoritos.length}</span>
 				</button>
-				<ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-					<li>
-						<button className="dropdown-item" type="button">
-							Action
-						</button>
-					</li>
+				<ul className="dropdown-menu bg-warning" aria-labelledby="dropdownMenu2">
+					{store.favoritos.map((item, index) => {
+						return (
+							<li key={index} className="ms-2 d-flex justify-content-between p-2">
+								<span>{item}</span>
+								<span className="text-danger fw-bold ms-auto" onClick={() => actions.deleteFav(index)}>
+									X
+								</span>
+								<hr />
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 

@@ -34,7 +34,12 @@ export const Personajes = () => {
 											<span className="detalle">Details</span>
 										</button>
 									</Link>
-									<button className="btn btn-outline-warning my-2 rounded-0">
+									<button
+										onClick={() => {
+											actions.addFav(item.name);
+											console.log(item.name);
+										}}
+										className="btn btn-outline-warning my-2 rounded-0">
 										<i className="far fa-heart" />
 									</button>
 								</div>
